@@ -1,6 +1,6 @@
 ﻿namespace MafiaDiscordBot.Mafia.Defs;
 
-public class AbilityDef
+public class AbilityDef : Def
 {
     
 }

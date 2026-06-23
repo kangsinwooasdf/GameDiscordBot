@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "2W3CLLvt0wY=",
+  "dgSpecHash": "45KuJnpsWDI=",
   "success": true,
   "projectFilePath": "C:\\Users\\shinw\\RiderProjects\\MapiaDiscordBot\\MafiaDiscordBot\\MafiaDiscordBot.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\shinw\\.nuget\\packages\\netcord\\1.0.0-beta.7\\netcord.1.0.0-beta.7.nupkg.sha512"
+    "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\11.0.0-preview.5.26302.115\\microsoft.extensions.dependencyinjection.11.0.0-preview.5.26302.115.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\11.0.0-preview.5.26302.115\\microsoft.extensions.dependencyinjection.abstractions.11.0.0-preview.5.26302.115.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.logging\\11.0.0-preview.5.26302.115\\microsoft.extensions.logging.11.0.0-preview.5.26302.115.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\11.0.0-preview.5.26302.115\\microsoft.extensions.logging.abstractions.11.0.0-preview.5.26302.115.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.options\\11.0.0-preview.5.26302.115\\microsoft.extensions.options.11.0.0-preview.5.26302.115.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.primitives\\11.0.0-preview.5.26302.115\\microsoft.extensions.primitives.11.0.0-preview.5.26302.115.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\netcord\\1.0.0-beta.7\\netcord.1.0.0-beta.7.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\system.diagnostics.diagnosticsource\\11.0.0-preview.5.26302.115\\system.diagnostics.diagnosticsource.11.0.0-preview.5.26302.115.nupkg.sha512"
   ],
   "logs": []
 }
