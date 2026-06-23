@@ -7,58 +7,54 @@ namespace MafiaDiscordBot.Mafia.Defs;
 
 public class DefLoader(ILogger<DefLoader> logger)
 {
-    public void LoadAll()
+    private readonly ILogger<DefLoader> _logger;
+    
+    public void LoadAll(ILogger logger)
+    {
+        // 실행 파일(.exe)이 있는 폴더 내부의 Data 폴더를 찾습니다.
+        string baseDataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+
+        if (!Directory.Exists(baseDataPath))
         {
-            // 실행 파일이 있는 위치(bin/Debug/...) 안의 Data 폴더를 기준으로 탐색
-            string baseDataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+            logger.LogWarning("데이터 폴더를 찾을 수 없습니다: {Path}", baseDataPath);
+            return;
+        }
 
-            if (!Directory.Exists(baseDataPath))
-            {
-                logger.LogWarning("데이터 폴더를 찾을 수 없습니다: {Path}", baseDataPath);
-                return;
-            }
+        var jsonOptions = new JsonSerializerOptions 
+        { 
+            PropertyNameCaseInsensitive = true, // json의 낙타표기법과 C#의 파스칼표기법 자동 매핑
+            ReadCommentHandling = JsonCommentHandling.Skip
+        };
 
-            // JSON의 camelCase(defName)와 C#의 PascalCase(DefName)를 자동 매핑
-            var jsonOptions = new JsonSerializerOptions 
-            { 
-                PropertyNameCaseInsensitive = true,
-                ReadCommentHandling = JsonCommentHandling.Skip
-            };
-
-            // 1. 직업 데이터 로드 (Data/Jobs 폴더)
-            LoadDirectory<RoleDef>(Path.Combine(baseDataPath, "Jobs"), jsonOptions);
+        // Data/Jobs 폴더 안의 모든 json을 읽어 RoleDef로 파싱합니다.
+        LoadDirectory<RoleDef>(Path.Combine(baseDataPath, "Jobs"), jsonOptions);
             
-            // 2. 능력 데이터 로드 (Data/Abilities 폴더)
-            LoadDirectory<AbilityDef>(Path.Combine(baseDataPath, "Abilities"), jsonOptions);
+        _logger.LogInformation("데이터 로딩 완료! (직업: {RoleCount}개)", DefDatabase<RoleDef>.Count);
+    }
 
-            logger.LogInformation("데이터 로딩 완료 (직업: {RoleCount}개, 능력: {AbilityCount}개)", 
-                DefDatabase<RoleDef>.Count, 
-                DefDatabase<AbilityDef>.Count);
-        }
+    private void LoadDirectory<T>(string targetDirectory, JsonSerializerOptions options) where T : Def
+    {
+        if (!Directory.Exists(targetDirectory)) return;
 
-        private void LoadDirectory<T>(string targetDirectory, JsonSerializerOptions options) where T : Def
+        var files = Directory.GetFiles(targetDirectory, "*.json", SearchOption.AllDirectories);
+
+        foreach (var file in files)
         {
-            if (!Directory.Exists(targetDirectory)) return;
-
-            // 하위 폴더까지 포함해서 모든 .json 파일 검색
-            var files = Directory.GetFiles(targetDirectory, "*.json", SearchOption.AllDirectories);
-
-            foreach (var file in files)
+            try
             {
-                try
-                {
-                    string jsonString = File.ReadAllText(file);
-                    T? def = JsonSerializer.Deserialize<T>(jsonString, options);
+                string jsonString = File.ReadAllText(file);
+                T? def = JsonSerializer.Deserialize<T>(jsonString, options);
 
-                    if (def != null)
-                    {
-                        DefDatabase<T>.Add(def);
-                    }
-                }
-                catch (Exception ex)
+                if (def != null)
                 {
-                    logger.LogError(ex, "파일 로드 실패: {FileName}", Path.GetFileName(file));
+                    DefDatabase<T>.Add(def);
+                    _logger.LogDebug("로드 성공: {DefName}", def.DefName);
                 }
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "파일 로드 실패: {FileName}", Path.GetFileName(file));
+            }
         }
+    }
 }

@@ -6,9 +6,9 @@ public static class DefDatabase<T> where T : Def
     private static readonly Dictionary<string, T> _defs = new();
 
     // 데이터 등록
-    public static void Add(T? def)
+    public static void Add(T def)
     {
-        if (def != null && !string.IsNullOrEmpty(def.DefName))
+        if (!string.IsNullOrEmpty(def.DefName))
         {
             _defs[def.DefName] = def;
         }
