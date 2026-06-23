@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2W3CLLvt0wY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shinw\\RiderProjects\\MapiaDiscordBot\\MafiaDiscordBot\\MafiaDiscordBot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shinw\\.nuget\\packages\\netcord\\1.0.0-beta.7\\netcord.1.0.0-beta.7.nupkg.sha512"
+  ],
+  "logs": []
+}

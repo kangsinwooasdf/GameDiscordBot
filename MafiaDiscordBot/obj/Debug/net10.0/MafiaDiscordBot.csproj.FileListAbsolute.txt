@@ -1,0 +1,17 @@
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\MafiaDiscordBot.exe
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\MafiaDiscordBot.deps.json
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\MafiaDiscordBot.runtimeconfig.json
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\MafiaDiscordBot.dll
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\MafiaDiscordBot.pdb
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\NetCord.dll
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.csproj.AssemblyReference.cache
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.AssemblyInfoInputs.cache
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.AssemblyInfo.cs
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.csproj.CoreCompileInputs.cache
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDis.5375C79A.Up2Date
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.dll
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\refint\MafiaDiscordBot.dll
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.pdb
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.genruntimeconfig.cache
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\ref\MafiaDiscordBot.dll
