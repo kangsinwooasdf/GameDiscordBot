@@ -55,14 +55,22 @@ internal class Program
         {
             if (interaction is SlashCommandInteraction slashCommand)
             {
+                // 1. 매 명령어 실행마다 DI 스코프(재료 상자) 생성
+                using var scope = host.Services.CreateScope();
                 try
                 {
-                    // 엔진이 알아서 알맞은 메서드(ReloadDataAsync 등)를 찾아 실행해 줍니다.
-                    await commandService.ExecuteAsync(new SlashCommandContext(slashCommand, client));
+                    // 2. 엔진에 Context와 함께 'scope.ServiceProvider'를 꼭 같이 넘겨주어야 DefLoader가 주입됩니다!
+                    var result = await commandService.ExecuteAsync(new SlashCommandContext(slashCommand, client), scope.ServiceProvider);
+                    
+                    // 3. Exception이 아닌, 시스템적 거부(권한 부족, DI 실패 등)가 발생했을 때 로그 띄우기
+                    if (result is NetCord.Services.IFailResult failResult)
+                    {
+                        logger.LogWarning("명령어 실행 거부됨: {Reason}", failResult.Message);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex, "명령어 실행 중 오류 발생");
+                    logger.LogError(ex, "명령어 실행 중 치명적 오류 발생");
                 }
             }
         };
