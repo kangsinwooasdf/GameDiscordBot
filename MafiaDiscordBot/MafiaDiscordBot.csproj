@@ -18,4 +18,10 @@
       <Folder Include="Mafia\Interface\" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="Data\**\*.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
 </Project>

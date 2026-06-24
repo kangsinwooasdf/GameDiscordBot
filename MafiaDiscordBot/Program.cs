@@ -37,7 +37,7 @@ internal class Program
         using (var scope = host.Services.CreateScope())
         {
             var defLoader = scope.ServiceProvider.GetRequiredService<DefLoader>();
-            defLoader.LoadAll(logger); // 여기서 JSON 파싱 실행
+            defLoader.LoadAll(); // 여기서 JSON 파싱 실행
         }
 
         // 3. 디스코드 봇 이벤트 설정 및 실행

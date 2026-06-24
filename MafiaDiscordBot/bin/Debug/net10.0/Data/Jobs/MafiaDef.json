@@ -1,0 +1,10 @@
+﻿{
+  "defName": "Role_Mafia",
+  "label": "마피아",
+  "description": "",
+  "isAbstract": false,
+  "team":"Mafia",
+  "baseAbilities": [
+    "Ability_Assassinate"
+  ]
+}

@@ -7,9 +7,7 @@ namespace MafiaDiscordBot.Mafia.Defs;
 
 public class DefLoader(ILogger<DefLoader> logger)
 {
-    private readonly ILogger<DefLoader> _logger;
-    
-    public void LoadAll(ILogger logger)
+    public void LoadAll()
     {
         // 실행 파일(.exe)이 있는 폴더 내부의 Data 폴더를 찾습니다.
         string baseDataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
@@ -25,11 +23,14 @@ public class DefLoader(ILogger<DefLoader> logger)
             PropertyNameCaseInsensitive = true, // json의 낙타표기법과 C#의 파스칼표기법 자동 매핑
             ReadCommentHandling = JsonCommentHandling.Skip
         };
+        
+        jsonOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 
         // Data/Jobs 폴더 안의 모든 json을 읽어 RoleDef로 파싱합니다.
         LoadDirectory<RoleDef>(Path.Combine(baseDataPath, "Jobs"), jsonOptions);
+        LoadDirectory<AbilityDef>(Path.Combine(baseDataPath, "Abilities"), jsonOptions);
             
-        _logger.LogInformation("데이터 로딩 완료! (직업: {RoleCount}개)", DefDatabase<RoleDef>.Count);
+        logger.LogInformation("데이터 로딩 완료 (직업: {RoleCount}개, 능력: {AbilityCount}개)", DefDatabase<RoleDef>.Count, DefDatabase<AbilityDef>.Count);
     }
 
     private void LoadDirectory<T>(string targetDirectory, JsonSerializerOptions options) where T : Def
@@ -48,12 +49,12 @@ public class DefLoader(ILogger<DefLoader> logger)
                 if (def != null)
                 {
                     DefDatabase<T>.Add(def);
-                    _logger.LogDebug("로드 성공: {DefName}", def.DefName);
+                    logger.LogDebug("로드 성공: {DefName}", def.DefName);
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "파일 로드 실패: {FileName}", Path.GetFileName(file));
+                logger.LogError(ex, "파일 로드 실패: {FileName}", Path.GetFileName(file));
             }
         }
     }
