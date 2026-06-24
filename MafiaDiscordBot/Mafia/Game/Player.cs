@@ -11,7 +11,7 @@ public class Player
     public string name { get; }
     
     // 게임 데이터
-    public RoleDef? role { get; private set; }
+    public RoleDef? Role { get; private set; }
     public List<IAbility> Abilities { get; } = new();
     
     // 인게임 상태
