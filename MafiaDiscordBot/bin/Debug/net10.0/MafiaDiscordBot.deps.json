@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting": "11.0.0-preview.5.26302.115",
           "Microsoft.Extensions.Logging": "11.0.0-preview.5.26302.115",
-          "NetCord": "1.0.0-beta.7"
+          "NetCord": "1.0.0-beta.7",
+          "NetCord.Services": "1.0.0-beta.7"
         },
         "runtime": {
           "MafiaDiscordBot.dll": {}
@@ -390,6 +391,17 @@
           }
         }
       },
+      "NetCord.Services/1.0.0-beta.7": {
+        "dependencies": {
+          "NetCord": "1.0.0-beta.7"
+        },
+        "runtime": {
+          "lib/net10.0/NetCord.Services.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "System.Diagnostics.DiagnosticSource/11.0.0-preview.5.26302.115": {
         "runtime": {
           "lib/net10.0/System.Diagnostics.DiagnosticSource.dll": {
@@ -659,6 +671,13 @@
       "sha512": "sha512-gUoxszsmr4ZSby0AGgnfvK933lFmseY+FLNhpeFXXxC6DY1BUUF8Y9pZhL0mhST6LzuCTZAS5DOoMddR792kCw==",
       "path": "netcord/1.0.0-beta.7",
       "hashPath": "netcord.1.0.0-beta.7.nupkg.sha512"
+    },
+    "NetCord.Services/1.0.0-beta.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Jl0WHEeZf10u1CecBqLEGuJFXtR246ER8Q1HGagiLqgrsGsJ8/zmiUFGdMDALJ8f0cu5NN9jgzhHLw3Jhxux5g==",
+      "path": "netcord.services/1.0.0-beta.7",
+      "hashPath": "netcord.services.1.0.0-beta.7.nupkg.sha512"
     },
     "System.Diagnostics.DiagnosticSource/11.0.0-preview.5.26302.115": {
       "type": "package",

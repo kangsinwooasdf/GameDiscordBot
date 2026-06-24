@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5La9Y3fhNHM=",
+  "dgSpecHash": "QWhA8nwH304=",
   "success": true,
   "projectFilePath": "C:\\Users\\shinw\\RiderProjects\\MapiaDiscordBot\\MafiaDiscordBot\\MafiaDiscordBot.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\11.0.0-preview.5.26302.115\\microsoft.extensions.options.configurationextensions.11.0.0-preview.5.26302.115.nupkg.sha512",
     "C:\\Users\\shinw\\.nuget\\packages\\microsoft.extensions.primitives\\11.0.0-preview.5.26302.115\\microsoft.extensions.primitives.11.0.0-preview.5.26302.115.nupkg.sha512",
     "C:\\Users\\shinw\\.nuget\\packages\\netcord\\1.0.0-beta.7\\netcord.1.0.0-beta.7.nupkg.sha512",
+    "C:\\Users\\shinw\\.nuget\\packages\\netcord.services\\1.0.0-beta.7\\netcord.services.1.0.0-beta.7.nupkg.sha512",
     "C:\\Users\\shinw\\.nuget\\packages\\system.diagnostics.diagnosticsource\\11.0.0-preview.5.26302.115\\system.diagnostics.diagnosticsource.11.0.0-preview.5.26302.115.nupkg.sha512",
     "C:\\Users\\shinw\\.nuget\\packages\\system.diagnostics.eventlog\\11.0.0-preview.5.26302.115\\system.diagnostics.eventlog.11.0.0-preview.5.26302.115.nupkg.sha512",
     "C:\\Users\\shinw\\.nuget\\packages\\system.io.pipelines\\11.0.0-preview.5.26302.115\\system.io.pipelines.11.0.0-preview.5.26302.115.nupkg.sha512",

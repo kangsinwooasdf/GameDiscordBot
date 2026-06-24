@@ -55,6 +55,10 @@
             "NetCord": {
               "target": "Package",
               "version": "[1.0.0-beta.7, )"
+            },
+            "NetCord.Services": {
+              "target": "Package",
+              "version": "[1.0.0-beta.7, )"
             }
           },
           "imports": [

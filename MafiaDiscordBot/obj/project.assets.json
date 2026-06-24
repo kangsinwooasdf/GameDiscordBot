@@ -598,6 +598,22 @@
           }
         }
       },
+      "NetCord.Services/1.0.0-beta.7": {
+        "type": "package",
+        "dependencies": {
+          "NetCord": "1.0.0-beta.7"
+        },
+        "compile": {
+          "lib/net10.0/NetCord.Services.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/NetCord.Services.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Diagnostics.DiagnosticSource/11.0.0-preview.5.26302.115": {
         "type": "package",
         "compile": {
@@ -1527,6 +1543,21 @@
         "netcord.nuspec"
       ]
     },
+    "NetCord.Services/1.0.0-beta.7": {
+      "sha512": "Jl0WHEeZf10u1CecBqLEGuJFXtR246ER8Q1HGagiLqgrsGsJ8/zmiUFGdMDALJ8f0cu5NN9jgzhHLw3Jhxux5g==",
+      "type": "package",
+      "path": "netcord.services/1.0.0-beta.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ICON.png",
+        "README.md",
+        "lib/net10.0/NetCord.Services.dll",
+        "lib/net10.0/NetCord.Services.xml",
+        "netcord.services.1.0.0-beta.7.nupkg.sha512",
+        "netcord.services.nuspec"
+      ]
+    },
     "System.Diagnostics.DiagnosticSource/11.0.0-preview.5.26302.115": {
       "sha512": "HlHyLbS1Rsh3zXfsLWiheGV6h+xTj9L9EPg7OhqO5w3LORLgiN7ffok2DuG/JInwdBwKKyiH6AIoBdkcq9B+pQ==",
       "type": "package",
@@ -1721,7 +1752,8 @@
     "net10.0": [
       "Microsoft.Extensions.Hosting >= 11.0.0-preview.5.26302.115",
       "Microsoft.Extensions.Logging >= 11.0.0-preview.5.26302.115",
-      "NetCord >= 1.0.0-beta.7"
+      "NetCord >= 1.0.0-beta.7",
+      "NetCord.Services >= 1.0.0-beta.7"
     ]
   },
   "packageFolders": {
@@ -1776,6 +1808,10 @@
             "version": "[11.0.0-preview.5.26302.115, )"
           },
           "NetCord": {
+            "target": "Package",
+            "version": "[1.0.0-beta.7, )"
+          },
+          "NetCord.Services": {
             "target": "Package",
             "version": "[1.0.0-beta.7, )"
           }

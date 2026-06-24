@@ -53,3 +53,4 @@ C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\r
 C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\obj\Debug\net10.0\MafiaDiscordBot.sourcelink.json
 C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Jobs\MafiaDef.json
 C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Abilities\killDef.json
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\NetCord.Services.dll
