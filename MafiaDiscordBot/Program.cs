@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
+using MafiaDiscordBot.Discord;
 using NetCord;
 using NetCord.Rest;
 using NetCord.Gateway;
@@ -20,18 +21,21 @@ internal class Program
         var builder = Host.CreateDefaultBuilder(args)
             .ConfigureServices((context, services) =>
             {
-                // 기본 로깅 설정 추가
+                // 로깅 설정
                 services.AddLogging(configure => configure.AddConsole());
                     
                 // DefLoader를 컨테이너에 등록
                 services.AddTransient<DefLoader>();
-                services.AddSingleton<ApplicationCommandService<SlashCommandContext>>();
 
-                // 봇 클라이언트를 싱글톤으로 등록
+                // 싱글톤
                 services.AddSingleton(new GatewayClient(new BotToken(botToken), new GatewayClientConfiguration
                 {
                     Intents = GatewayIntents.GuildMessages | GatewayIntents.MessageContent
                 }));
+
+                services.AddSingleton<ApplicationCommandService<SlashCommandContext>>();
+                services.AddSingleton<DiscordMessageManager>();
+                services.AddSingleton<DiscordManager>();
             });
 
         var host = builder.Build();

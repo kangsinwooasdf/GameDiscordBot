@@ -1,0 +1,6 @@
+﻿{
+  "defName": "Msg_MafiaNightSelect",
+  "content": "**마피아 전용:** 암살 대상을 선택하세요.",
+  "placeholder": "총구를 겨눌 대상을 선택하세요...",
+  "embedColor": "#FF0000"
+}

@@ -55,3 +55,6 @@ C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\D
 C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Abilities\killDef.json
 C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\NetCord.Services.dll
 C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Jobs\PoliceDef.json
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Jobs\DoctorDef.json
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Message\DawnDeathReport.json
+C:\Users\shinw\RiderProjects\MapiaDiscordBot\MafiaDiscordBot\bin\Debug\net10.0\Data\Message\MafiaNightSelect.json

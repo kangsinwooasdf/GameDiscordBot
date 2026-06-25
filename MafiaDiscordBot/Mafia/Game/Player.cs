@@ -8,7 +8,7 @@ public class Player
 {
     // 유저 식별 정보
     public ulong UserID { get; }
-    public string name { get; }
+    public string Name { get; }
     
     // 게임 데이터
     public RoleDef? Role { get; private set; }
@@ -22,7 +22,7 @@ public class Player
     public Player(ulong userid, string name)
     {
         UserID = userid;
-        this.name = name;
+        this.Name = name;
     }
 
     public void Die() =>  IsDead = true;

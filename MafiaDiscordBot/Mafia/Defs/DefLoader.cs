@@ -29,8 +29,10 @@ public class DefLoader(ILogger<DefLoader> logger)
         // Data/Jobs 폴더 안의 모든 json을 읽어 RoleDef로 파싱합니다.
         LoadDirectory<RoleDef>(Path.Combine(baseDataPath, "Jobs"), jsonOptions);
         LoadDirectory<AbilityDef>(Path.Combine(baseDataPath, "Abilities"), jsonOptions);
+        LoadDirectory<MessageDef>(Path.Combine(baseDataPath, "Messages"), jsonOptions);
             
-        logger.LogInformation("데이터 로딩 완료 (직업: {RoleCount}개, 능력: {AbilityCount}개)", DefDatabase<RoleDef>.Count, DefDatabase<AbilityDef>.Count);
+        logger.LogInformation("데이터 로딩 완료 (직업: {RoleCount}개, 능력: {AbilityCount}개), 메세지: {MessageCount}개", 
+            DefDatabase<RoleDef>.Count, DefDatabase<AbilityDef>.Count, DefDatabase<MessageDef>.Count);
     }
 
     private void LoadDirectory<T>(string targetDirectory, JsonSerializerOptions options) where T : Def
