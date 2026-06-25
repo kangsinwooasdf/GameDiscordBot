@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Text.Json;
+using MafiaDiscordBot.Debug;
 using Microsoft.Extensions.Logging;
 
 namespace MafiaDiscordBot.Mafia.Defs;
@@ -9,14 +11,14 @@ public class DefLoader(ILogger<DefLoader> logger)
 {
     public void LoadAll()
     {
-        // 실행 파일(.exe)이 있는 폴더 내부의 Data 폴더를 찾습니다.
+        // Log.Info("모든 Def 데이터를 로드합니다...", LogMessageType.System);
         string baseDataPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
 
         if (!Directory.Exists(baseDataPath))
         {
             logger.LogWarning("데이터 폴더를 찾을 수 없습니다: {Path}", baseDataPath);
             return;
-        }
+        }   
 
         var jsonOptions = new JsonSerializerOptions 
         { 
@@ -26,13 +28,28 @@ public class DefLoader(ILogger<DefLoader> logger)
         
         jsonOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
 
-        // Data/Jobs 폴더 안의 모든 json을 읽어 RoleDef로 파싱합니다.
-        LoadDirectory<RoleDef>(Path.Combine(baseDataPath, "Jobs"), jsonOptions);
-        LoadDirectory<AbilityDef>(Path.Combine(baseDataPath, "Abilities"), jsonOptions);
-        LoadDirectory<MessageDef>(Path.Combine(baseDataPath, "Messages"), jsonOptions);
-            
-        logger.LogInformation("데이터 로딩 완료 (직업: {RoleCount}개, 능력: {AbilityCount}개), 메세지: {MessageCount}개", 
+
+        // 1. 리플렉션을 위해 LoadDirectory<T> 메서드와 DefDatabase<T> 타입을 가져옵니다.
+        var loadMethod = typeof(DefLoader).GetMethod("LoadDirectory", BindingFlags.NonPublic | BindingFlags.Instance);
+        var clearMethodBase = typeof(DefDatabase<>);
+
+        // 2. 등록된 모든 Def 종류를 foreach로 순회.
+        foreach (var (defType, folderName) in DefDatabase.DefRegistry)
+        {
+            string fullFolderPath = Path.Combine(baseDataPath, folderName);
+
+            // 기존 데이터를 비우는 DefDatabase<T>.Clear() 호출
+            var dbType = clearMethodBase.MakeGenericType(defType);
+            dbType.GetMethod("Clear", BindingFlags.Public | BindingFlags.Static)?.Invoke(null, null);
+
+            // LoadDirectory<T>(folderName) 호출
+            object[] parameters = [fullFolderPath, jsonOptions];
+            loadMethod?.MakeGenericMethod(defType).Invoke(this, parameters);
+        }
+
+        logger.LogInformation("데이터 로딩 완료 (직업: {RoleCount}개, 능력: {AbilityCount}개, 메세지: {MessageCount}개)", 
             DefDatabase<RoleDef>.Count, DefDatabase<AbilityDef>.Count, DefDatabase<MessageDef>.Count);
+        // Log.Success("✅ 모든 Def 로드 완료!", LogMessageType.System);
     }
 
     private void LoadDirectory<T>(string targetDirectory, JsonSerializerOptions options) where T : Def
@@ -48,9 +65,11 @@ public class DefLoader(ILogger<DefLoader> logger)
                 string jsonString = File.ReadAllText(file);
                 T? def = JsonSerializer.Deserialize<T>(jsonString, options);
 
-                if (def != null)
+                if (def == null) continue;
+                DefDatabase<T>.Add(def);
+                
+                if (logger.IsEnabled(LogLevel.Debug))
                 {
-                    DefDatabase<T>.Add(def);
                     logger.LogDebug("로드 성공: {DefName}", def.DefName);
                 }
             }

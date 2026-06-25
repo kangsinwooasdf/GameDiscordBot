@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using NetCord;
 using NetCord.Rest;
 using NetCord.Gateway;
+using NetCord.Services.ApplicationCommands;
 
 namespace MafiaDiscordBot.Discord;
 
@@ -67,5 +68,26 @@ public class DiscordMessageManager(GatewayClient client)
         };
 
         return await _client.Rest.SendMessageAsync(channelId, messageProps);
+    }
+    
+    // Embed 명령어
+    public async Task ReplyEmbedAsync(SlashCommandContext context, string title, string description, Color color)
+    {
+        var embed = new EmbedProperties()
+        {
+            Title = title,
+            Description = description,
+            Color = color
+        };
+
+        // 채널 전송용 MessageProperties가 아닌, 응답 수정용 InteractionMessageProperties 사용
+        var messageProps = new InteractionMessageProperties()
+        {
+            Embeds = new List<EmbedProperties> { embed }
+        };
+
+        // 명령어를 친 유저에게 직접 응답 결과를 띄워줍니다.
+        await context.Interaction.ModifyResponseAsync(x =>
+            x.Embeds = messageProps.Embeds);
     }
 }

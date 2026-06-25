@@ -15,7 +15,6 @@ public class AdminCommands(DefLoader defLoader, DiscordMessageManager _msgManage
     {
         await RespondAsync(InteractionCallback.DeferredMessage(MessageFlags.Ephemeral));
         // 1. 기존 메모리에 있던 데이터를 싹 날립니다.
-        ulong channelId = Context.Channel.Id;
         
         DefDatabase<Def>.Clear();
 
@@ -26,12 +25,11 @@ public class AdminCommands(DefLoader defLoader, DiscordMessageManager _msgManage
         string desc =
             $"현재 로드된 직업 수: **{DefDatabase<RoleDef>.Count}개**\n능력 수: **{DefDatabase<AbilityDef>.Count}**개\n 메세지 수: {DefDatabase<MessageDef>.Count}개";
 
-        await _msgManager.SendEmbedAsync(channelId, title, desc, new Color(0, 255, 0));
+        await _msgManager.ReplyEmbedAsync(Context, title, desc, new Color(0, 255, 0));
     }
 
     public async Task CheckDataAsync()
     {
         await RespondAsync(InteractionCallback.DeferredMessage(MessageFlags.Ephemeral));
-
     }
 }

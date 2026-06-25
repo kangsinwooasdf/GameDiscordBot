@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MafiaDiscordBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a892f9822991c07e01c2152275782889294f9315")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+454156a7d2abf2719b2cbfce19d6bfbdcc02e108")]
 [assembly: System.Reflection.AssemblyProductAttribute("MafiaDiscordBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MafiaDiscordBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

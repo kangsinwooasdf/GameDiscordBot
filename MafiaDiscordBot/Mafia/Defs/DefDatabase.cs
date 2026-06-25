@@ -1,5 +1,15 @@
 ﻿namespace MafiaDiscordBot.Mafia.Defs;
 
+public static class DefDatabase
+{
+    public static readonly Dictionary<Type, string> DefRegistry = new()
+    {
+        { typeof(RoleDef), "Jobs" },
+        { typeof(AbilityDef), "Abilities" },
+        { typeof(MessageDef), "Message" }
+    };
+}
+
 public static class DefDatabase<T> where T : Def
 {
     // DefName(예: "Role_Mafia")을 키값으로 사용하는 딕셔너리
