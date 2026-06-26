@@ -1,3 +1,6 @@
 ﻿{
-  "defName": "kill"
+  "defName": "Ability_Kill",
+  "label": "처형",
+  "ClassName": "KillAbility",
+  "BasePriority": 500
 }

@@ -1,7 +1,7 @@
 ﻿{
   "defName": "Role_Mafia",
   "label": "마피아",
-  "description": "",
+  "description": "니는 마피아랑께요.",
   "isAbstract": false,
   "team":"Mafia",
   "baseAbilities": [
