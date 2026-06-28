@@ -5,4 +5,5 @@ namespace MafiaDiscordBot.Mafia.Game;
 public class GameSession
 {
     public List<GameEvent> EventQueue { get; } = new();
+    public List<Player> Players = [];
 }
